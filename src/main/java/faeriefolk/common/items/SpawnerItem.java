@@ -4,9 +4,10 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
+import faeriefolk.client.FaerieFolkItemGroups;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Rarity;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.CompoundNBT;
 
@@ -16,7 +17,7 @@ public class SpawnerItem extends SpawnEggItem
 	
 	public SpawnerItem(Supplier<EntityType<?>> supplierTypeIn, String primaryColorIn, String secondaryColorIn)
 	{
-		super(null, Integer.parseInt(primaryColorIn, 16), Integer.parseInt(secondaryColorIn, 16), new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+		super(null, Integer.parseInt(primaryColorIn, 16), Integer.parseInt(secondaryColorIn, 16), new Item.Properties().rarity(Rarity.UNCOMMON).group(FaerieFolkItemGroups.ITEMGROUP));
 		this.supplier = supplierTypeIn;
 	}
 	

@@ -42,9 +42,23 @@ public class GoblinEntity extends CreatureEntity
 		this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
 	}
 	
+	public void tick()
+	{
+		super.tick();
+		if (!this.world.isRemote && this.isPeaceful() && this.getAttackTarget() != null)
+		{
+			this.setAttackTarget(null);
+		}
+	}
+	
 	public boolean canAttack(LivingEntity targetLivingEntity)
 	{
-		return super.canAttack(targetLivingEntity) && this.world.getDifficulty() != Difficulty.PEACEFUL;
+		return super.canAttack(targetLivingEntity) && !this.isPeaceful();
+	}
+	
+	private boolean isPeaceful()
+	{
+		return this.world.getDifficulty() == Difficulty.PEACEFUL;
 	}
 	
 	private boolean isTargetSmall(LivingEntity targetLivingEntity)

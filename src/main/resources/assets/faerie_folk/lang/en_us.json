@@ -1,3 +1,5 @@
 {
-	"item.faerie_folk.spawner_goblin": "Goblin Spawn Egg"
+	"itemGroup.faerie_folk.itemgroup": "Faerie Folk",
+	"item.faerie_folk.spawner_goblin": "Goblin Spawn Egg",
+	"entity.faerie_folk.goblin": "Goblin"
 }
