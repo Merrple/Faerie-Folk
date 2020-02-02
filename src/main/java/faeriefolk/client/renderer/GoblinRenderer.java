@@ -21,7 +21,7 @@ public class GoblinRenderer extends MobRenderer<GoblinEntity, GoblinModel<Goblin
 
 	public ResourceLocation getEntityTexture(GoblinEntity entity)
 	{
-		return FaerieFolk.resourceLocaton("textures/entities/goblin.png");
+		return FaerieFolk.resourceLocaton("textures/entities/goblin/default.png");
 	}
 	
 	public static class GoblinRendererFactory implements IRenderFactory<GoblinEntity>

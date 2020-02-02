@@ -12,6 +12,7 @@ public final class FaerieFolkItems
 	private static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, FaerieFolk.MODID);
 	
 	public static final RegistryObject<Item> SPAWNER_GOBLIN = ITEMS.register("spawner_goblin", () -> new SpawnerItem(() -> FaerieFolkEntityTypes.GOBLIN.get(), "858CDB", "746EC9"));
+	public static final RegistryObject<Item> SPAWNER_BROWNIE = ITEMS.register("spawner_brownie", () -> new SpawnerItem(() -> FaerieFolkEntityTypes.BROWNIE.get(), "858CDB", "746EC9"));
 	
 	public static DeferredRegister<Item> getRegistry()
 	{

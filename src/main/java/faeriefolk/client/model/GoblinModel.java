@@ -189,7 +189,7 @@ public class GoblinModel<T extends LivingEntity> extends BipedModel<T> implement
 	
 	protected Iterable<ModelRenderer> func_225602_a_()
 	{
-		return func_225600_b_();
+		return ImmutableList.of();
 	}
 	
 	protected Iterable<ModelRenderer> func_225600_b_()

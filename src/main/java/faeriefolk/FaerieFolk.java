@@ -1,9 +1,13 @@
 package faeriefolk;
 
+import faeriefolk.client.renderer.BrownieRenderer.BrownieRendererFactory;
 import faeriefolk.client.renderer.GoblinRenderer.GoblinRendererFactory;
 import faeriefolk.common.entities.FaerieFolkEntityTypes;
 import faeriefolk.common.items.FaerieFolkItems;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod(FaerieFolk.MODID)
 public final class FaerieFolk
@@ -32,13 +37,20 @@ public final class FaerieFolk
 	
 	private void commonSetup(final FMLCommonSetupEvent event)
 	{
-		
+		for (Biome biome : ForgeRegistries.BIOMES)
+		{
+			if (biome == Biomes.FOREST || biome == Biomes.BIRCH_FOREST || biome == Biomes.BIRCH_FOREST_HILLS || biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS || biome == Biomes.TALL_BIRCH_FOREST || biome == Biomes.TALL_BIRCH_HILLS || biome == Biomes.TAIGA || biome == Biomes.TAIGA_HILLS)
+			{
+				biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(FaerieFolkEntityTypes.GOBLIN.get(), 5, 6, 8));
+			}
+		}
 	}
 	
 	private void clientSetup(final FMLClientSetupEvent event)
 	{
 		if (FMLEnvironment.dist.isDedicatedServer()) return;
 		RenderingRegistry.registerEntityRenderingHandler(FaerieFolkEntityTypes.GOBLIN.get(), GoblinRendererFactory.INSTANCE);
+		RenderingRegistry.registerEntityRenderingHandler(FaerieFolkEntityTypes.BROWNIE.get(), BrownieRendererFactory.INSTANCE);
 	}
 	
 	public static ResourceLocation resourceLocaton(String location)
@@ -46,9 +58,8 @@ public final class FaerieFolk
 		return new ResourceLocation(MODID, location);
 	}
 	
-	@EventBusSubscriber(modid = FaerieFolk.MODID, bus = Bus.FORGE)
+	@EventBusSubscriber(modid = FaerieFolk.MODID, bus = Bus.MOD)
 	public static class EventHandler
 	{
-		
 	}
 }

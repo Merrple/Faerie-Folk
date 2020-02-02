@@ -17,6 +17,6 @@ public class AltLeapAtTargetGoal extends LeapAtTargetGoal
 	public boolean shouldExecute()
 	{
 		LivingEntity target = this.goalOwner.getAttackTarget();
-		return super.shouldExecute() && this.goalOwner.isAlive() && target != null && target.isAlive();
+		return super.shouldExecute() && this.goalOwner.isAlive() && target.isAlive();
 	}
 }

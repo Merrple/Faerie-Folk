@@ -1,5 +1,6 @@
 package faeriefolk.common.entities.creature;
 
+import faeriefolk.common.entities.IFaerieEntity;
 import faeriefolk.common.entities.ai.goals.AltLeapAtTargetGoal;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
@@ -15,7 +16,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
-public class GoblinEntity extends CreatureEntity
+public class GoblinEntity extends CreatureEntity implements IFaerieEntity
 {
 	public GoblinEntity(EntityType<? extends GoblinEntity> type, World worldIn)
 	{
@@ -41,6 +42,21 @@ public class GoblinEntity extends CreatureEntity
 		this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
 		this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
 	}
+	
+	/**protected void registerData()
+	{
+		super.registerData();
+	}
+	
+	public void writeAdditional(CompoundNBT compound)
+	{
+		super.writeAdditional(compound);
+	}
+	
+	public void readAdditional(CompoundNBT compound)
+	{
+		super.readAdditional(compound);
+	}**/
 	
 	public void tick()
 	{
