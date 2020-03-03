@@ -174,6 +174,10 @@ public class GoblinEntityModel<T extends GoblinEntity> extends SegmentedModel<T>
 		float f = MathHelper.clamp(p_225597_6_ * ((float)Math.PI / 180F), -0.2F, 0.3F);
 	    this.head.rotateAngleX = -0.2618F + f;
 	    this.mouth.rotateAngleX = 0.3491F - f;
+	    this.leftArm.rotateAngleX = MathHelper.cos(p_225597_2_ * 0.6662F) * 1.4F * p_225597_3_;
+	    this.rightArm.rotateAngleX = MathHelper.cos(p_225597_2_ * 0.6662F + (float)Math.PI) * 1.4F * p_225597_3_;
+	    this.rightLeg.rotateAngleX = MathHelper.cos(p_225597_2_ * 0.6662F) * 1.4F * p_225597_3_ * 0.5F;
+	    this.leftLeg.rotateAngleX = MathHelper.cos(p_225597_2_ * 0.6662F + (float)Math.PI) * 1.4F * p_225597_3_ * 0.5F;
 	}
 	
 	public void func_225599_a_(HandSide p_225599_1_, MatrixStack p_225599_2_) {
