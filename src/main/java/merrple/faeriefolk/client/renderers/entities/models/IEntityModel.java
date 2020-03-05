@@ -4,10 +4,15 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 
 interface IEntityModel {
 	
-	public default void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public default ModelRenderer setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
+		return modelRenderer;
+	}
+	
+	public default ModelRenderer copyRotationAngle(ModelRenderer modelRenderer, ModelRenderer m) {
+		return this.setRotationAngle(modelRenderer, m.rotateAngleX, m.rotateAngleY, m.rotateAngleZ);
 	}
 	
 	public default ModelRenderer placeholderName(ModelRenderer modelRenderer, float posX, float posY, float posJ, float scaleX, float scaleY, float scaleJ, float scaleTot) {
